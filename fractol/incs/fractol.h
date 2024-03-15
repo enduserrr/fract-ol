@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:20:41 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 12:52:35 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/15 14:23:16 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../../mlx/mlx.h"
 # include "../../libft/incs/libft.h"
-# include <math.h>
+/* # include <math.h> */
 
 # define WIDTH 800
 # define HIGHT 800
