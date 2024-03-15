@@ -6,31 +6,63 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:10 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 13:07:51 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:47:48 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/fractol.h"
 
-void	check_input(char *option)
+double	ft_atod(char *s)
 {
-	if (ft_strcmp(option, "mandel") != 0
-		&& ft_strcmp(option, "julia") != 0)
+	long	integer_part;
+	double	fractional_part;
+	double	pow;
+	int		sign;
+
+	integer_part = 0;
+	fractional_part = 0;
+	sign = +1;
+	pow = 1;
+	while ((*s >= 9 && *s <= 13) || 32 == *s)
+		++s;
+	while ('+' == *s || '-' == *s)
+		if ('-' == *s++)
+			sign = -sign;
+	while (*s != '.' && *s)
+		integer_part = (integer_part * 10) + (*s++ - 48);
+	if ('.' == *s)
+		++s;
+	while (*s)
 	{
-		ft_printf("error: incorrect argument!!!!!\n");
-		ft_printf("\n\tINSTRUCTIONS\n");
-		ft_printf("\nESC\t\t:exit fractal");
-		ft_printf("\nSCROLL\t\t:zoom in/out");
-		ft_printf("\nA/D\t\t:horizontal movement");
-		ft_printf("\nW/D\t\t:vertical movent");
-		ft_printf("\nC\t\t:change color");
-		ft_printf("\nP\t\t:increase depth");
-		ft_printf("\nM\t\t:decrease depth");
-		ft_printf("\nJ\t\t:generate random (julia)");
-		ft_printf("\nR\t\t:reset the fractal\n");
+		pow /= 10;
+		fractional_part = fractional_part + (*s++ - 48) * pow;
+	}
+	return ((integer_part + fractional_part) * sign);
+}
+
+void	check_input(char *name)
+{
+	if (ft_strcmp(name, "mandel") != 0
+		&& ft_strcmp(name, "julia") != 0)
+	{
+		ft_printf("error: incorrect input\n");
 		ft_printf("--------------------------------------------------\n");
 		ft_printf("try: './fractol <fractal_name>' (julia or mandel)\n");
 		ft_printf("--------------------------------------------------\n");
+		// ft_printf("error: incorrect argument!!!!!\n");
+		// ft_printf("\n\tINSTRUCTIONS\n");
+		// ft_printf("\nESC\t\t:exit fractal");
+		// ft_printf("\nSCROLL\t\t:zoom in/out");
+		// ft_printf("\nA/D\t\t:horizontal movement");
+		// ft_printf("\nW/D\t\t:vertical movent");
+		// ft_printf("\nC\t\t:change color");
+		// ft_printf("\nP\t\t:increase depth");
+		// ft_printf("\nM\t\t:decrease depth");
+		// ft_printf("\nJ\t\t:generate random (julia)");
+		// ft_printf("\nR\t\t:reset the fractal\n");
+		// ft_printf("--------------------------------------------------\n");
+		// ft_printf("try: './fractol <fractal_name>' (julia or mandel)\n");
+		// ft_printf("--------------------------------------------------\n");
 		exit (1);
 	}
 }

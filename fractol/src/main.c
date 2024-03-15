@@ -6,11 +6,25 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:46:21 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 11:44:31 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:44:26 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/fractol.h"
+
+void	julia_params(char *name, char *arg2, char *arg3, t_fractal *fractal)
+{
+	if (ft_strcmp(name, "julia") == 0)
+	{
+		fractal->x = ft_atod(arg2);
+		fractal->y = ft_atod(arg3);
+		fractal->color = 0xFF5733;
+		fractal->zoom = 300;
+		fractal->offset_x = -1.21;
+		fractal->offset_y = -1.21;
+		fractal->max_iterations = 60;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -23,13 +37,12 @@ int	main(int argc, char **argv)
 		ft_printf("%s\n", "error: missing argument");
 		exit(1);
 	}
-	if (argc > 2)
-	{
-		ft_printf("%s\n", "error: too many arguments");
-		exit(1);
-	}
-	check_input(argv[1]);
-	init_fractal(fractal);
+	if (argc == 2)
+		init_fractal(fractal);
+	else if (argc == 4)
+		julia_params(argv[1], argv[2], argv[3], fractal);
+	// check_input(argv[1]);
+	// init_fractal(fractal);
 	init_mlx(fractal);
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
