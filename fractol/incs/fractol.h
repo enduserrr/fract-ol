@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:20:41 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 19:55:02 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/16 11:20:33 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define RIGHT 124
 # define R 15
 # define C 8
-// # define J 38
 # define P 35
 # define M 46
 # define ESC 53
@@ -65,7 +64,7 @@ typedef struct s_fractal
 }			t_fractal;
 
 double		ft_atod(char *s);
-void		check_input(char *name);
+void		julia_options(t_fractal	*fractal, char *name);
 int			clean_exit(t_fractal *fractal);
 void		change_iterations(t_fractal *fractal, int key_code);
 void		init_fractal(t_fractal *fractal);

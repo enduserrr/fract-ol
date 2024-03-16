@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:39:16 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 13:07:16 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/16 11:20:49 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	draw_julia(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
+	fractal->offset_x = -1.32;
+	fractal->offset_y = -1.29;
 	while (fractal->x < WIDTH)
 	{
 		while (fractal->y < HIGHT)

@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:10 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 19:47:48 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/16 11:04:49 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,6 @@ double	ft_atod(char *s)
 	return ((integer_part + fractional_part) * sign);
 }
 
-void	check_input(char *name)
-{
-	if (ft_strcmp(name, "mandel") != 0
-		&& ft_strcmp(name, "julia") != 0)
-	{
-		ft_printf("error: incorrect input\n");
-		ft_printf("--------------------------------------------------\n");
-		ft_printf("try: './fractol <fractal_name>' (julia or mandel)\n");
-		ft_printf("--------------------------------------------------\n");
-		// ft_printf("error: incorrect argument!!!!!\n");
-		// ft_printf("\n\tINSTRUCTIONS\n");
-		// ft_printf("\nESC\t\t:exit fractal");
-		// ft_printf("\nSCROLL\t\t:zoom in/out");
-		// ft_printf("\nA/D\t\t:horizontal movement");
-		// ft_printf("\nW/D\t\t:vertical movent");
-		// ft_printf("\nC\t\t:change color");
-		// ft_printf("\nP\t\t:increase depth");
-		// ft_printf("\nM\t\t:decrease depth");
-		// ft_printf("\nJ\t\t:generate random (julia)");
-		// ft_printf("\nR\t\t:reset the fractal\n");
-		// ft_printf("--------------------------------------------------\n");
-		// ft_printf("try: './fractol <fractal_name>' (julia or mandel)\n");
-		// ft_printf("--------------------------------------------------\n");
-		exit (1);
-	}
-}
-
 int	clean_exit(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
@@ -87,3 +60,19 @@ void	change_iterations(t_fractal *fractal, int key_code)
 			fractal->max_iterations += 42;
 	}
 }
+/*
+ft_printf("error: incorrect argument!!!!!\n");
+ft_printf("\n\tINSTRUCTIONS\n");
+ft_printf("\nESC\t\t:exit fractal");
+ft_printf("\nSCROLL\t\t:zoom in/out");
+ft_printf("\nA/D\t\t:horizontal movement");
+ft_printf("\nW/D\t\t:vertical movent");
+ft_printf("\nC\t\t:change color");
+ft_printf("\nP\t\t:increase depth");
+ft_printf("\nM\t\t:decrease depth");
+ft_printf("\nJ\t\t:generate random (julia)");
+ft_printf("\nR\t\t:reset the fractal\n");
+ft_printf("--------------------------------------------------\n");
+ft_printf("try: './fractol <fractal_name>' (julia or mandel)\n");
+ft_printf("--------------------------------------------------\n");
+*/

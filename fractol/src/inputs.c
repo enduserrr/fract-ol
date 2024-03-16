@@ -6,31 +6,11 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:14:56 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/15 19:55:56 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/16 10:16:57 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/fractol.h"
-
-// static int	random_nb(void)
-// {
-// 	static unsigned long	next;
-
-// 	next = 1;
-// 	next = next * 1103515245 + 12345;
-// 	return ((unsigned int)(next / 65536) % (RANDOM_MAX + 1));
-// }
-
-// static double	generate_random_c(void)
-// {
-// 	return (((double)random_nb() / RANDOM_MAX) * 3.0 - 1.5);
-// }
-
-// static void	set_random_julia(double *cx, double *cy)
-// {
-// 	*cx = generate_random_c();
-// 	*cy = generate_random_c();
-// }
 
 void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
@@ -78,8 +58,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 	draw_fractal(fractal, fractal->name);
 	return (0);
 }
-/*	else if (key_code == J)
-	set_random_julia(&fractal->cx, &fractal->cx); */
 
 int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
