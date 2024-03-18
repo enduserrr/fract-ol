@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inputs.c                                           :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:14:56 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/16 15:58:29 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/18 13:14:43 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 		return ;
 }
 
+static void	increment_julia(double *cx, double *cy, int opt)
+{
+	if (opt == 0)
+	{
+		*cx = *cx * 1.05;
+		*cy = *cy * 1.05;
+	}
+	if (opt == 1)
+	{
+		*cx = *cx * 0.95;
+		*cy = *cy * 0.95;
+	}
+}
+
 int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)
@@ -51,6 +65,10 @@ int	key_hook(int key_code, t_fractal *fractal)
 		fractal->offset_y += 42 / fractal->zoom;
 	else if (key_code == R)
 		init_fractal(fractal);
+	else if (key_code == LEFT_SHIFT)
+		increment_julia(&fractal->cx, &fractal->cx, 0);
+	else if (key_code == LEFT_CTRL)
+		increment_julia(&fractal->cx, &fractal->cx, 1);
 	else if (key_code == C)
 		fractal->color += (255 * 255 * 255) / 100;
 	else if (key_code == M || key_code == P)

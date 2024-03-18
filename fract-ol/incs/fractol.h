@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:20:41 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/16 16:22:32 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/18 13:09:49 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define C 8
 # define P 35
 # define M 46
+# define J 38
+# define LEFT_SHIFT 257
+# define LEFT_CTRL 256
 # define ESC 53
 
 /* MOUSECODES */
