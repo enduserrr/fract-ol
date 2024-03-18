@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:10 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/16 17:05:09 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/18 12:34:24 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,22 @@ void	instructions(char *help)
 		ft_printf("\n\n\tCOMMANDS\n");
 		ft_printf("\nESC\t\t:exit fractal");
 		ft_printf("\nSCROLL\t\t:zoom in/out");
-		ft_printf("\nA/D\t\t:horizontal movement");
-		ft_printf("\nW/D\t\t:vertical movent");
+		ft_printf("\nA/D & ←/→\t\t:horizontal movement");
+		ft_printf("\nW/D & ↑/↓\t\t:vertical movent");
 		ft_printf("\nC\t\t:change color");
 		ft_printf("\nP\t\t:increase depth");
 		ft_printf("\nM\t\t:decrease depth");
 		ft_printf("\nJ\t\t:generate random (julia)");
 		ft_printf("\nR\t\t:reset the fractal\n");
 		ft_printf("___________________________________________\n");
-		ft_printf("\n./fractol <mandel> OR ./fractol <julia> <option>\n");
-		ft_printf("[options: empty, 0-3 or custom (0.259 -0.045)]\n");
+		ft_printf("\n\n\tEXECUTE\n");
+		ft_printf("\n'./fractol <mandel>' & './fractol <julia> <option>'\n");
+		ft_printf("\noptions:\n→ empty ()\n");
+		ft_printf("→ 0 (x=-0.8, y=0.156)\n→ 1 (x=0.285, y=0.01)\n");
+		ft_printf("→ 2 (x=-0.70176, y=-0.3842)\n→ 3 (x=-0.4, y=-0.4)");
+		ft_printf("\n→ custom (e.g. 0.259 -0.045 or 0.4 -0.4)\n");
 		ft_printf("_________________________________\n");
+		exit (0);
 	}
 }
 
@@ -69,8 +74,6 @@ void	error_exit(int type)
 		ft_printf("%s\n", "ERROR: INCORRECT INPUT");
 		ft_printf("For instructions: ./fractol help\n");
 	}
-	else if (type == 1)
-		instructions("help");
 	exit(1);
 }
 
