@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:46:21 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 12:37:40 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 08:47:30 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,33 +46,38 @@ static void	julia_options(t_fractal	*fractal, char *name)
 
 static void	check_input(t_fractal *fractal, int argc, char **argv)
 {
-	if (argc < 2 || !argv[1][0] || argc > 4)
-		error_exit(0);
-	else if (ft_strcmp(argv[1], "mandel") != 0
+	// if (argc < 2 || !argv[1][0] || argc > 4)
+	// 	error_exit(1);
+	if (ft_strcmp(argv[1], "mandel") != 0
 		&& ft_strcmp(argv[1], "julia") != 0
 		&& ft_strcmp(argv[1], "help") != 0)
-		error_exit(0);
+		error_exit(1);
 	else if (ft_strcmp(argv[1], "mandel") == 0 && argc != 2)
 		error_exit(0);
-	if (ft_strcmp(argv[1], "help") == 0)
+	else if (ft_strcmp(argv[1], "help") == 0)
 		instructions(argv[1]);
-	if (argc == 3 && ft_strcmp(argv[1], "julia") == 0)
+	else if (argc == 3 && ft_strcmp(argv[1], "julia") == 0)
 		julia_options(fractal, argv[2]);
 	else if (argc == 4 && ft_strcmp(argv[1], "julia") == 0)
 		julia_params(argv[2], argv[3], fractal);
 }
-
+/**
+ * @brief	i incremented against argc to ensure the correct loop termination
+ * 			even if the string isn't null terminated.
+ */
 int	main(int argc, char **argv)
 {
 	t_fractal			*fractal;
 	static t_fractal	fractal_instance;
-	long				n;
+	double				n;
 	int					i;
 
+	if (argc < 2 || argc > 4 || !argv[1][0])
+		error_exit(1);
 	i = 0;
-	while (argv[i])
+	while (i < argc)
 	{
-		n = ft_atol(argv[i]);
+		n = ft_atod(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			error_exit(0);
 		i++;

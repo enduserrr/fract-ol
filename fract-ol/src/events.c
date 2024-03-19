@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:14:56 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 13:14:43 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 09:20:11 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static void	increment_julia(double *cx, double *cy, int opt)
 {
 	if (opt == 0)
 	{
-		*cx = *cx * 1.05;
-		*cy = *cy * 1.05;
+		*cx = *cx * 1.03;
+		*cy = *cy * 1.03;
 	}
 	if (opt == 1)
 	{
-		*cx = *cx * 0.95;
-		*cy = *cy * 0.95;
+		*cx = *cx * 0.97;
+		*cy = *cy * 0.97;
 	}
 }
 
@@ -70,7 +70,7 @@ int	key_hook(int key_code, t_fractal *fractal)
 	else if (key_code == LEFT_CTRL)
 		increment_julia(&fractal->cx, &fractal->cx, 1);
 	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 100;
+		fractal->color += (90 * 90 * 90) / 100;
 	else if (key_code == M || key_code == P)
 		change_iterations(fractal, key_code);
 	draw_fractal(fractal, fractal->name);

@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:20:41 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 13:09:49 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 09:05:57 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 # include "../../mlx/mlx.h"
 # include "../../libft/incs/libft.h"
-/* # include <math.h> */
 
 # define WIDTH 800
-# define HIGHT 800
-# define RANDOM_MAX 32767
+# define HIGHT 600
 
 /* KEYCODES */
 # define W 13
@@ -34,7 +32,6 @@
 # define C 8
 # define P 35
 # define M 46
-# define J 38
 # define LEFT_SHIFT 257
 # define LEFT_CTRL 256
 # define ESC 53
@@ -66,22 +63,26 @@ typedef struct s_fractal
 	int		max_iterations;
 }			t_fractal;
 
-double		ft_atod(char *s);
-int			clean_exit(t_fractal *fractal);
-void		error_exit(int type);
 void		instructions(char *help);
+double		ft_atod(char *s);
+void		error_exit(int type);
+int			clean_exit(t_fractal *fractal);
+
 void		change_iterations(t_fractal *fractal, int key_code);
+
 void		init_fractal(t_fractal *fractal);
 void		init_mlx(t_fractal *fractal);
-void		calculate_mandelbrot(t_fractal *fractal);
-void		calculate_julia(t_fractal *fractal);
+
 int			draw_fractal(t_fractal *fractal, char *option);
 void		color_pixel(t_fractal *fractal, int x, int y, int colour);
-void		*draw_mandelbrot(void *fractal_void);
+
+void		calculate_mandelbrot(t_fractal *fractal);
+void		calculate_julia(t_fractal *fractal);
+void		draw_mandelbrot(t_fractal *fractal);
 void		draw_julia(t_fractal *fractal);
+
+void		zoom(t_fractal *fractal, int x, int y, int zoom);
 int			key_hook(int key_code, t_fractal *fractal);
 int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
-void		*draw_mandelbrot(void *fractal_void);
-void		draw_julia(t_fractal *fractal);
 
 #endif

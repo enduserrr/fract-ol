@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:11:58 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/16 16:09:21 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/18 19:48:26 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ void	calculate_mandelbrot(t_fractal *fractal)
 				* i));
 }
 
-void	*draw_mandelbrot(void *fractal_void)
+void	draw_mandelbrot(t_fractal *fractal)
 {
-	t_fractal	*fractal;
-
-	fractal = (t_fractal *)fractal_void;
 	fractal->x = 0;
 	fractal->y = 0;
 	while (fractal->x < WIDTH)
@@ -57,5 +54,4 @@ void	*draw_mandelbrot(void *fractal_void)
 		fractal->x++;
 		fractal->y = 0;
 	}
-	return (NULL);
 }

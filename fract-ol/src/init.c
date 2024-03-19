@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:50 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/16 16:07:22 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 09:13:04 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_fractal(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->offset_x = -2.03;
 	fractal->offset_y = -1.29;
-	fractal->color = 0xFF5733;
+	fractal->color = 0x3F00FF;
 	fractal->zoom = 300;
 	fractal->max_iterations = 60;
 }

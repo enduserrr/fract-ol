@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:10 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 13:16:36 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/18 19:52:48 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	instructions(char *help)
 		ft_printf("\n\n\tCOMMANDS\n");
 		ft_printf("\nESC\t\t:exit fractal");
 		ft_printf("\nSCROLL\t\t:zoom in/out");
-		ft_printf("\nA/D & ←/→\t\t:horizontal movement");
-		ft_printf("\nW/D & ↑/↓\t\t:vertical movent");
+		ft_printf("\nA/D & ←/→\t:horizontal movement");
+		ft_printf("\nW/D & ↑/↓\t:vertical movent");
 		ft_printf("\nC\t\t:change color");
 		ft_printf("\nP\t\t:increase depth");
 		ft_printf("\nM\t\t:decrease depth");
@@ -73,8 +73,15 @@ void	error_exit(int type)
 	{
 		ft_printf("%s\n", "ERROR: INCORRECT INPUT");
 		ft_printf("For instructions: ./fractol help\n");
+		exit(1);
 	}
-	exit(1);
+	if (type == 1)
+	{
+		ft_printf("ERROR:\nChoose a valid fractal to run.\n");
+		ft_printf("Available fractals: Mandelbrot (mandel) & Julia (julia).\n");
+		ft_printf("For more help try: './fractal help'\n");
+		exit(1);
+	}
 }
 
 int	clean_exit(t_fractal *fractal)
