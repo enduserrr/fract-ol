@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:10 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 19:52:48 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:16:35 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,6 @@ void	instructions(char *help)
 	}
 }
 
-double	ft_atod(char *s)
-{
-	long	integer_part;
-	double	fractional_part;
-	double	pow;
-	int		sign;
-
-	integer_part = 0;
-	fractional_part = 0;
-	sign = +1;
-	pow = 1;
-	while ((*s >= 9 && *s <= 13) || 32 == *s)
-		++s;
-	while ('+' == *s || '-' == *s)
-		if ('-' == *s++)
-			sign = -sign;
-	while (*s != '.' && *s)
-		integer_part = (integer_part * 10) + (*s++ - 48);
-	if ('.' == *s)
-		++s;
-	while (*s)
-	{
-		pow /= 10;
-		fractional_part = fractional_part + (*s++ - 48) * pow;
-	}
-	return ((integer_part + fractional_part) * sign);
-}
-
 void	error_exit(int type)
 {
 	if (type == 0)
@@ -96,11 +68,11 @@ void	change_iterations(t_fractal *fractal, int key_code)
 	if (key_code == M)
 	{
 		if (fractal->max_iterations > 42)
-			fractal->max_iterations -= 42;
+			fractal->max_iterations -= 21;
 	}
 	else if (key_code == P)
 	{
 		if (fractal->max_iterations < 4200)
-			fractal->max_iterations += 42;
+			fractal->max_iterations += 21;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:46:21 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 08:47:30 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:18:24 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static void	julia_options(t_fractal	*fractal, char *name)
 
 static void	check_input(t_fractal *fractal, int argc, char **argv)
 {
-	// if (argc < 2 || !argv[1][0] || argc > 4)
-	// 	error_exit(1);
 	if (ft_strcmp(argv[1], "mandel") != 0
 		&& ft_strcmp(argv[1], "julia") != 0
 		&& ft_strcmp(argv[1], "help") != 0)
@@ -65,6 +63,7 @@ static void	check_input(t_fractal *fractal, int argc, char **argv)
  * @brief	i incremented against argc to ensure the correct loop termination
  * 			even if the string isn't null terminated.
  */
+
 int	main(int argc, char **argv)
 {
 	t_fractal			*fractal;
@@ -84,7 +83,7 @@ int	main(int argc, char **argv)
 	}
 	fractal = &fractal_instance;
 	check_input(fractal, argc, argv);
-	init_fractal(fractal);
+	init_fractal(fractal, argv[1]);
 	init_mlx(fractal);
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);

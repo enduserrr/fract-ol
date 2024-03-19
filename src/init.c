@@ -6,21 +6,37 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:10:50 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 09:13:04 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:08:05 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/fractol.h"
 
-void	init_fractal(t_fractal *fractal)
+static void	julia_offset(t_fractal *fractal)
+{
+	fractal->offset_x = -1.3255;
+	fractal->offset_y = -0.995;
+	fractal->name = "julia";
+}
+
+static void	mandel_offset(t_fractal *fractal)
+{
+	fractal->offset_x = -2.03;
+	fractal->offset_y = -1.05;
+	fractal->name = "mandel";
+}
+
+void	init_fractal(t_fractal *fractal, char *name)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->offset_x = -2.03;
-	fractal->offset_y = -1.29;
-	fractal->color = 0x3F00FF;
+	fractal->color = 0x114ffc;
 	fractal->zoom = 300;
 	fractal->max_iterations = 60;
+	if (ft_strcmp(name, "mandel") == 0)
+		mandel_offset(fractal);
+	else if (ft_strcmp(name, "julia") == 0)
+		julia_offset(fractal);
 }
 
 void	init_mlx(t_fractal *fractal)

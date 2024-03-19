@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:14:56 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 09:20:11 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:01:51 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ int	key_hook(int key_code, t_fractal *fractal)
 	else if (key_code == DOWN || key_code == S)
 		fractal->offset_y += 42 / fractal->zoom;
 	else if (key_code == R)
-		init_fractal(fractal);
+		init_fractal(fractal, fractal->name);
 	else if (key_code == LEFT_SHIFT)
 		increment_julia(&fractal->cx, &fractal->cx, 0);
 	else if (key_code == LEFT_CTRL)
 		increment_julia(&fractal->cx, &fractal->cx, 1);
 	else if (key_code == C)
-		fractal->color += (90 * 90 * 90) / 100;
+		fractal->color += (255 * 255 * 255) / 100;
 	else if (key_code == M || key_code == P)
 		change_iterations(fractal, key_code);
 	draw_fractal(fractal, fractal->name);

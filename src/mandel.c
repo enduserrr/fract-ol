@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 09:11:58 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/18 19:48:26 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:55:31 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	calculate_mandelbrot(t_fractal *fractal)
 	int		i;
 	double	tmp;
 
-	fractal->name = "mandel";
 	i = 0;
 	fractal->zx = 0.0;
 	fractal->zy = 0.0;

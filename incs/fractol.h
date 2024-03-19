@@ -6,15 +6,15 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:20:41 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 09:05:57 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:29:40 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../../mlx/mlx.h"
-# include "../../libft/incs/libft.h"
+# include "mlx/mlx.h"
+# include "libft/incs/libft.h"
 
 # define WIDTH 800
 # define HIGHT 600
@@ -63,24 +63,23 @@ typedef struct s_fractal
 	int		max_iterations;
 }			t_fractal;
 
+/*UTILS*/
 void		instructions(char *help);
-double		ft_atod(char *s);
 void		error_exit(int type);
 int			clean_exit(t_fractal *fractal);
-
 void		change_iterations(t_fractal *fractal, int key_code);
-
-void		init_fractal(t_fractal *fractal);
+/*INITS*/
+void		init_fractal(t_fractal *fractal, char *name);
 void		init_mlx(t_fractal *fractal);
-
+/*DRAW*/
 int			draw_fractal(t_fractal *fractal, char *option);
 void		color_pixel(t_fractal *fractal, int x, int y, int colour);
-
+/*JULIA & MANDELBROT*/
 void		calculate_mandelbrot(t_fractal *fractal);
 void		calculate_julia(t_fractal *fractal);
 void		draw_mandelbrot(t_fractal *fractal);
 void		draw_julia(t_fractal *fractal);
-
+/*EVENTS*/
 void		zoom(t_fractal *fractal, int x, int y, int zoom);
 int			key_hook(int key_code, t_fractal *fractal);
 int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);

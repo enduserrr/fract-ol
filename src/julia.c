@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:39:16 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 09:14:14 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:55:40 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	calculate_julia(t_fractal *fractal)
 	int		i;
 	double	tmp;
 
-	fractal->name = "julia";
 	fractal->zx = fractal->x / fractal->zoom + fractal->offset_x;
 	fractal->zy = fractal->y / fractal->zoom + fractal->offset_y;
 	i = 0;
