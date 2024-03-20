@@ -6,7 +6,7 @@
 /*   By: asalo <asalo@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:39:16 by asalo             #+#    #+#             */
-/*   Updated: 2024/03/19 13:55:40 by asalo            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:46:38 by asalo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	calculate_julia(t_fractal *fractal)
 			+ fractal->cx;
 		fractal->zy = 2 * fractal->zy * tmp + fractal->cy;
 		if (fractal->zx * fractal->zx + fractal->zy
-			* fractal->zy >= __DBL_MAX__)
+			* fractal->zy >= 4.0)
 			break ;
 	}
 	if (i == fractal->max_iterations)
